@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -65,4 +69,32 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
+}
+
+header.masthead {
+  background-color: #1abc9c;
+  color: white;
+  padding: 100px 0;
+  text-align: center;
+}
+.divider-custom {
+  margin: 1.5rem 0;
+}
+.divider-custom-line {
+  width: 100px;
+  height: 1px;
+  background-color: white;
+  display: inline-block;
+}
+.divider-custom-icon {
+  font-size: 2rem;
+  margin: 0 1rem;
+}
+.portfolio .col-md-6 {
+  margin-bottom: 30px;
+}
+footer {
+  background-color: #2c3e50;
+  color: white;
+  padding: 40px 0;
 }

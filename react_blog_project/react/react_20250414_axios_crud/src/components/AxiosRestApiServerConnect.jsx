@@ -93,11 +93,11 @@ function AxiosRestApiServerConnect() {
             }
         })
             .then(res => {
-                console.log('axios를 통한 비동기 통신 (get 파라미터 방식) 성공')
+                console.log('axios를 통한 비동기 통신 (put 파라미터 방식) 성공')
                 console.log(res.data)
             })
             .catch(err => {
-                console.log("비동기 통신 (get 파라미터 방식) 중 오류가 발생했습니다.")
+                console.log("비동기 통신 (put 파라미터 방식) 중 오류가 발생했습니다.")
                 console.log(err)
             })
     }
@@ -110,11 +110,11 @@ function AxiosRestApiServerConnect() {
             }
         })
             .then(res => {
-                console.log('axios를 통한 비동기 통신 (get 파라미터 방식) 성공')
+                console.log('axios를 통한 비동기 통신 (delete 방식) 성공')
                 console.log(res.data)
             })
             .catch(err => {
-                console.log("비동기 통신 (get 파라미터 방식) 중 오류가 발생했습니다.")
+                console.log("비동기 통신 (delete 방식) 중 오류가 발생했습니다.")
                 console.log(err)
             })
     }

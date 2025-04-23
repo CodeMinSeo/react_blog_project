@@ -2,21 +2,22 @@
 //  25. 4. 15.
 
 import { Link, useNavigate } from 'react-router-dom';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
 
 // 임시 더미 데이터
-const boardList = [
-  {boardIdx: 7, title: '테스트 제목 7', createId: 'test5', createDate: '2025-04-07', hitCnt: 14},
-  {boardIdx: 6, title: '테스트 제목 6', createId: 'test4', createDate: '2025-04-06', hitCnt: 20},
-  {boardIdx: 5, title: '테스트 제목 5', createId: 'test3', createDate: '2025-04-05', hitCnt: 0},
-  {boardIdx: 4, title: '테스트 제목 4', createId: 'test3', createDate: '2025-04-04', hitCnt: 2},
-  {boardIdx: 3, title: '테스트 제목 3', createId: 'test1', createDate: '2025-04-03', hitCnt: 9},
-  {boardIdx: 2, title: '테스트 제목 2', createId: 'test2', createDate: '2025-04-02', hitCnt: 5},
-  {boardIdx: 1, title: '테스트 제목 1', createId: 'test1', createDate: '2025-04-01', hitCnt: 10},
-];
+// const boardList = [
+//   {boardIdx: 7, title: '테스트 제목 7', createId: 'test5', createDate: '2025-04-07', hitCnt: 14},
+//   {boardIdx: 6, title: '테스트 제목 6', createId: 'test4', createDate: '2025-04-06', hitCnt: 20},
+//   {boardIdx: 5, title: '테스트 제목 5', createId: 'test3', createDate: '2025-04-05', hitCnt: 0},
+//   {boardIdx: 4, title: '테스트 제목 4', createId: 'test3', createDate: '2025-04-04', hitCnt: 2},
+//   {boardIdx: 3, title: '테스트 제목 3', createId: 'test1', createDate: '2025-04-03', hitCnt: 9},
+//   {boardIdx: 2, title: '테스트 제목 2', createId: 'test2', createDate: '2025-04-02', hitCnt: 5},
+//   {boardIdx: 1, title: '테스트 제목 1', createId: 'test1', createDate: '2025-04-01', hitCnt: 10},
+// ];
 
 function BoardList() {
-
+  const [boardList, setBoardList] = useState([]);
   const navi = useNavigate();
 
   const clickDetail = (boardIdx, e) => {
@@ -29,6 +30,18 @@ function BoardList() {
 
   useEffect(() => {
     //   axios 를 사용하여 서버와 통신
+    axios.get("http://localhost:9090/api/boardList")
+      .then(res => {
+        console.log('axios를 통한 비동기 통신 (get 방식) 성공')
+        console.log(res.data)
+
+        setBoardList(res.data);
+
+      })
+      .catch(err => {
+        console.log("비동기 통신 (get 방식) 중 오류가 발생했습니다.")
+        console.log(err)
+      })
   }, [])
 
   return (

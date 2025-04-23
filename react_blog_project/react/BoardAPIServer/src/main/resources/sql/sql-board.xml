@@ -24,17 +24,17 @@
 
 <!-- 파라미터가 있는 POST 통신 방식 (추가)   -->
     <insert id="insertBoard" parameterType="bitc.fullstack503.boardapiserver.dto.BoardDTO">
-        INSERT INTO board (title, contents, create_id, create_date)
-            VALUE (#{title}, #{contents}, #{createId}, now());
+        INSERT INTO board (title, contents, create_id, create_date, deleted_yn)
+            VALUE (#{title}, #{contents}, #{createId}, now(), 'Y')
     </insert>
 
     <update id="updateBoard" parameterType="bitc.fullstack503.boardapiserver.dto.BoardDTO">
         UPDATE board
-        SET title = #{title}
-        WHERE board_idx = #{boardIdx};
+        SET title = #{title}, contents = #{contents}
+        WHERE board_idx = #{boardIdx}
     </update>
 
     <delete id="deleteBoard" parameterType="bitc.fullstack503.boardapiserver.dto.BoardDTO">
-        DELETE FROM board WHERE board_idx = #{boardIdx};
+        DELETE FROM board WHERE board_idx = #{boardIdx}
     </delete>
 </mapper>

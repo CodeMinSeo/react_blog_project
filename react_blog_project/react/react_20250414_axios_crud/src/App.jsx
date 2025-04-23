@@ -14,7 +14,7 @@ function App() {
         <br/>
 
         <h3>Axios 사용하기</h3>
-        {/*<AxiosTest />*/}
+        <AxiosTest />
 
       <br/>
       <hr/>
