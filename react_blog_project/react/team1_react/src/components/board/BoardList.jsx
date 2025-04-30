@@ -45,51 +45,52 @@ function BoardList() {
   }, [])
 
   return (
-    <div className={'container mt-5'}>
-      <div className={'row'}>
-        <div className={'col-sm'}>
-          <table className={'table table-hover table-striped text-center'}>
-            <colgroup>
-              <col width={'5%'}/>
-              <col width={'50%'}/>
-              <col width={'15%'}/>
-              <col width={'15%'}/>
-              <col width={'15%'}/>
-            </colgroup>
-            <thead>
-            <tr>
-              <th>번호</th>
-              <th>제목</th>
-              <th>글쓴이</th>
-              <th>등록시간</th>
-              <th>추천수</th>
-            </tr>
-            </thead>
-            <tbody>
-            {
-              boardList.map((item) => {
-                return (
-                  <tr key={item.boardIdx}>
-                    <td>{item.boardIdx}</td>
-                    <td className={'text-start'} onClick={(e) => clickDetail(item.boardIdx, e)}>{item.title}</td>
-                    <td>{item.createId}</td>
-                    <td>{item.createDate}</td>
-                    <td>{item.hitCnt}</td>
-                  </tr>
-                );
-              })
-            }
-            </tbody>
-          </table>
+    <main className=" flex-1 p-6 overflow-y-auto">
+      <div className="bg-white rounded shadow p-4 w-100 h-full overflow-y-auto">
+        <div className={'container mt-5'}>
+          <div className={'row'}>
+            <div className={'col-sm'}>
+              <div className={'d-flex justify-content-end'}>
+                <Link to={'/board/boardWrite'} className={'btn btn-primary'}>글쓰기</Link>
+              </div>
+              <table className={'table table-hover table-striped text-center'}>
+                <colgroup>
+                  <col width={'5%'}/>
+                  <col width={'50%'}/>
+                  <col width={'15%'}/>
+                  <col width={'15%'}/>
+                  <col width={'15%'}/>
+                </colgroup>
+                <thead>
+                <tr>
+                  <th>번호</th>
+                  <th>제목</th>
+                  <th>글쓴이</th>
+                  <th>등록시간</th>
+                  <th>추천수</th>
+                </tr>
+                </thead>
+                <tbody>
+                {
+                  boardList.map((item) => {
+                    return (
+                      <tr key={item.boardIdx}>
+                        <td>{item.boardIdx}</td>
+                        <td className={'text-start'} onClick={(e) => clickDetail(item.boardIdx, e)}>{item.title}</td>
+                        <td>{item.createId}</td>
+                        <td>{item.createDate}</td>
+                        <td>{item.hitCnt}</td>
+                      </tr>
+                    );
+                  })
+                }
+                </tbody>
+              </table>
+            </div>
+          </div>
         </div>
       </div>
-      <div className={'mt-3 d-flex justify-content-end'}>
-        <Link to={'/board/boardWrite'} className={'btn btn-primary'}>글쓰기</Link>
-        {/*<Link to={'/board/boardWrite'}>*/}
-        {/*  <button type={'button'} className={'btn btn-primary'}>글쓰기</button>*/}
-        {/*</Link>*/}
-      </div>
-    </div>
+    </main>
   );
 }
 
